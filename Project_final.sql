@@ -46,7 +46,7 @@ WHERE value_type_code LIKE 5958 and value IS NOT NULL and calculation_code LIKE 
 GROUP BY payroll_year, name
 ORDER BY name ASC, payroll_year ASC, payroll_quarter ASC ;
  /* Odpověď na otázku číslo 1 - Průměrná mzda v jednotlivých letech pro každé odvětví.
- Z dat je vidět rostoucí trend ve všech odvětvích. */
+ Z dat je vidět rostoucí trend ve všech odvětvích. Pouze v roce 2013 je pokles v některých odvětvích. */
 
 SELECT
     Payroll / Price AS Bread_amount,
@@ -56,7 +56,7 @@ FROM t_Jakub_Lansky_project_SQL_primary_final
 WHERE name LIKE "%chléb%"
 ORDER BY Year ASC
 Limit 1 ;
- -- Odpověď na otázku číslo 2 - Množství másla, které šlo za průměrnou mzdu koupit při nejstarším období
+ -- Odpověď na otázku číslo 2 - Množství chleba, které šlo za průměrnou mzdu koupit při nejstarším období
 
 SELECT
     Payroll / Price AS "Bread_amount",
@@ -66,7 +66,7 @@ FROM t_Jakub_Lansky_project_SQL_primary_final
 WHERE name LIKE "%chléb%"
 ORDER BY Year DESC
 Limit 1 ;
- -- Odpověď na otázku číslo 2 - Množství másla, které šlo za průměrnou mzdu koupit při nejmladším období
+ -- Odpověď na otázku číslo 2 - Množství chleba, které šlo za průměrnou mzdu koupit při nejmladším období
 
 SELECT
     Payroll / Price AS "Milk_amount",
@@ -95,7 +95,8 @@ FROM t_Jakub_Lansky_project_SQL_primary_final
 GROUP BY name
 ORDER BY Difference ;
 /* Odpověď na otázku číslo 3 - Procentuální nárůst cen jednotlivých potravin během sledovaného období
-Z dat vychází, že největší nárůst je u másla a nejnižší u vína */
+Z dat vychází, že potraviny stále nezdražují, ale ceny jednotlivých potravin různě rostou a klesají. 
+Nejvíce zdražilo máslo. Cukr a rajčata mají na konci období nižší cenu než na začátku. U vína chybí údaje z let před rokem 2015. */
 
 CREATE TABLE t_auxiliary_3
 SELECT
@@ -127,7 +128,8 @@ FROM t_auxiliary_3 as TA3
 JOIN economies ON economies.Year = TA3.Year WHERE country LIKE "Czech republic"
 ORDER BY TA3.Year
 /* Odpověď na otázku číslo 5 - Roční procentuální nárůst všech cen a roční procentuální nárůst mezd a HDP v ČR. 
-Z dat nevychází příliš velká korelace HDP a růstem cen potravin a růstem mezd.  */
+HDP záviselo na cenách potravin a na mzdách. V roce nárůstu cen a mezd rostlo HDP. 
+Naopak když v roce 2009 klesly ceny potravin, kleslo také HDP. Stejně tak v roce 2013 při poklesu mezd také kleslo HDP. */
 
 CREATE TABLE t_Jakub_Lansky_project_SQL_secondary_final
 SELECT
