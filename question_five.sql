@@ -4,7 +4,7 @@ SELECT
     (Average_price - LAG(Average_price, 1) OVER (ORDER BY Year)) / LAG(Average_price, 1) OVER(ORDER BY Year) * 100 AS price_year_difference,
     (Payroll - LAG(Payroll, 1) OVER(ORDER BY Year)) / LAG(Payroll, 1) OVER(ORDER BY Year) * 100 AS payroll_year_difference,
     GDP AS "GDP_Czech_republic"
-FROM t_auxiliary_3 as TA3
+FROM t_auxiliary_3 AS TA3
 JOIN economies ON economies.Year = TA3.Year WHERE country LIKE "Czech republic"
 ORDER BY TA3.Year
 /* Odpověď na otázku číslo 5 - Roční procentuální nárůst všech cen a roční procentuální nárůst mezd a HDP v ČR. 
