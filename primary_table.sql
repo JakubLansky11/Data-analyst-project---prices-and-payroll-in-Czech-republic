@@ -1,10 +1,10 @@
 CREATE TABLE t_auxiliary_1
 SELECT
-	name,
+    name,
     SUM(value) / COUNT(value) AS price,
     price_value AS price_value,
     price_unit AS unit,
-    YEAR(date_to) AS Year
+    YEAR(date_to) AS year
 FROM czechia_price
 JOIN czechia_price_category ON czechia_price.category_code = czechia_price_category.code
 GROUP BY Year, name
