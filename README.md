@@ -1,2 +1,4 @@
-# SQL-project
-SQL project - payrolls and prices in Czech republic
+# Data analyst project
+Project - payrolls and prices in Czech republic
+Downloading data via SQL
+Visualisation in Power BI and Python (Pandas)
