@@ -1,4 +1,4 @@
-CREATE TABLE t_auxiliary_1
+CREATE or replace TABLE t_auxiliary_1
 SELECT
     name,
     SUM(value) / COUNT(value) AS price,
@@ -11,7 +11,7 @@ GROUP BY Year, name
 ORDER BY name, Year ;
 -- Vytvoření pomocné tabulky - ceny potravin
 
-CREATE TABLE t_auxiliary_2
+CREATE or replace TABLE t_auxiliary_2
 SELECT
     payroll_year AS year,
     SUM(value) / COUNT(value) AS payroll
@@ -23,7 +23,7 @@ GROUP BY payroll_year
 ORDER BY payroll_year ASC ;
 -- Vytvoření pomocné tabulky - údaje o průměrné mzdě za jednotlivé roky
 
-CREATE TABLE t_Jakub_Lansky_project_SQL_primary_final
+CREATE or replace TABLE t_Jakub_Lansky_project_SQL_primary_final
 SELECT 
     name,
     price,
