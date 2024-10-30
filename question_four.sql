@@ -1,4 +1,4 @@
-CREATE TABLE t_auxiliary_3
+CREATE or replace TABLE t_auxiliary_3
 SELECT
     year,
     SUM(Price) / COUNT(Price) AS average_price,
