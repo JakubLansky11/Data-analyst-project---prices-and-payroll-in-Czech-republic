@@ -1,4 +1,4 @@
-CREATE TABLE t_Jakub_Lansky_project_SQL_secondary_final
+CREATE or replace TABLE t_Jakub_Lansky_project_SQL_secondary_final
 SELECT
     c.country,
     c.capital_city,
