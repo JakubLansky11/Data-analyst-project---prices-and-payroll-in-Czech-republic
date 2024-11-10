@@ -2,9 +2,9 @@
 Complex data analyst project - payrolls and prices in Czech republic.
 
 First step: 
-Downloading data via SQL from prepared databases (from Engeto as course material)
+Downloading data via SQL from prepared databases (as data analyst course material)
 - 2 tables were done - first for data in Czech republic, second for other countries 
-- SQL ueries as answers on data analyst questions.
+- SQL queries as answers on data analyst questions.
 - Obtained data saved in csv files (Data_HDP_pandas, SQL project).
 
 Second step:
